@@ -14,7 +14,7 @@ export function saveState() {
 export function loadState() {
     let data = JSON.parse(localStorage.getItem('TaskMastaData'))
     console.log(data)
-    if (data != null) {
+    if (data != null && ProxyState.lists.length > 0) {
         ProxyState.lists = data.lists.map(list => new List(list))
         ProxyState.tasks = data.tasks.map(task => new Task(task))
 
