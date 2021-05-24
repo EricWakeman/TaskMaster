@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js"
 import { List } from "../Models/List.js"
 import { saveState } from "../Utils/LocalStorage.js"
+import { taskService } from "../Services/TasksService.js"
 
 class ListsService {
 
@@ -17,6 +18,7 @@ class ListsService {
     removeList(id) {
         if (window.confirm('Are you sure you want to delete?')) {
             ProxyState.lists = ProxyState.lists.filter(l => l.id !== id)
+            taskService.clearTasks(id)
         }
     }
 

@@ -99,6 +99,6 @@ export class ListsController {
     }
     removeList(id) {
         listsService.removeList(id)
-        taskService.clearTasks(id)
+
     }
 }
